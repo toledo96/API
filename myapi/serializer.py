@@ -1,5 +1,5 @@
 from rest_framework import routers, serializers, viewsets
-from myapi.models import Alumno
+from myapi.models import Alumno,Carrera
 
 
 class AlumnoSerializers(serializers.ModelSerializer):
@@ -10,3 +10,7 @@ class AlumnoSerializers(serializers.ModelSerializer):
     class Meta:
         model = Alumno
         fields = ('__all__')
+
+class CarreraSerializers(serializers.ModelSerializer):
+    model = Carrera
+    fields = ('__all__')

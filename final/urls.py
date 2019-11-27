@@ -24,7 +24,9 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api/v1/', include('myapi.urls')),
+    re_path(r'^api/v1/login', include('Login.urls')),
 ]

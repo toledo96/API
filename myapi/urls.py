@@ -7,6 +7,10 @@ from myapi import views
 
 urlpatterns = [
      re_path(r'^alumno_lista/$', views.AlumnoLista.as_view() ),
-     re_path(r'^alumno_detalles/(?P<id>\d+)$', views.AlumnoDetalles.as_view() ),   
+     re_path(r'^alumno_detalles/(?P<id>\d+)$', views.AlumnoDetalles.as_view() ),
+
+     # Ulrs carrera
+     re_path(r'^carrera_lista/$', views.CarreraLista.as_view() ),
+     re_path(r'^carrera_detalles/(?P<id>\d+)$', views.CarreraDetalles.as_view() ),      
 ]
 
