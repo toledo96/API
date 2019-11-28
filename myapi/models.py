@@ -7,7 +7,10 @@ class Alumno(models.Model):
     sexo = models.CharField(max_length=60)
     direccion = models.TextField(max_length=1000)
     carrera = models.CharField(max_length=60)
+    email = models.CharField(max_length=70, default = "email")
+    password = models.CharField(max_length=30,default = "password")
     delete = models.BooleanField(default = False)
+
 
 class Carrera(models.Model):    
     nombre_carrera = models.CharField(max_length=60)
