@@ -6,13 +6,11 @@ class Alumno(models.Model):
     edad = models.CharField(max_length=60)
     sexo = models.CharField(max_length=60)
     direccion = models.TextField(max_length=1000)
-    carrera = models.CharField(max_length=60)
-    email = models.CharField(max_length=70, default = "email")
-    password = models.CharField(max_length=30,default = "password")
+    carrera = models.CharField(max_length=60)    
     delete = models.BooleanField(default = False)
 
 
-class Carrera(models.Model):    
+class Carrera(models.Model):        
     nombre_carrera = models.CharField(max_length=60)
     delete = models.BooleanField(default = False)
     re_alumno= models.ForeignKey(Alumno, related_name='carreras', on_delete=models.CASCADE)#null=false

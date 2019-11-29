@@ -30,6 +30,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api/v1/', include('myapi.urls')),
     re_path(r'^api/v1/login', include('Login.urls')),
-    path('api-token-auth/', views.obtain_auth_token,name='api-toke-auth')
 
 ]

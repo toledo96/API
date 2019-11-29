@@ -11,7 +11,11 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.http import Http404
 
+from rest_framework.permissions import IsAuthenticated  # <-- Here
+
 class AlumnoLista(APIView):
+
+    permission_classes = (IsAuthenticated,)    
     
     def get(self, request, format=None):
         queryset = Alumno.objects.filter(delete=False)
@@ -27,6 +31,7 @@ class AlumnoLista(APIView):
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class AlumnoDetalles(APIView):
+    permission_classes = (IsAuthenticated,)    
     def get_object(self, id):
         try:
             return Alumno.objects.get(pk=id, delete=False)
@@ -60,7 +65,7 @@ class AlumnoDetalles(APIView):
 
 #Carrera
 class CarreraLista(APIView):
-
+    permission_classes = (IsAuthenticated,)    
     def get(self, request, format=None):
         queryset = Carrera.objects.filter(delete=False)
         serializer = CarreraSerializers(queryset, many=True)
@@ -75,7 +80,7 @@ class CarreraLista(APIView):
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
 class CarreraDetalles(APIView):
-    
+    permission_classes = (IsAuthenticated,)    
     def get_object(self, id):
         try:
             return Carrera.objects.get(pk=id, delete=False)
