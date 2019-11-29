@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'Login',
     'rest_framework',
+    'rest_auth',
     'rest_framework.authtoken',
     'myapi.apps.MyapiConfig',
     'django.contrib.admin',
@@ -44,6 +45,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 ]
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.TokenAuthentication',
+#     ],
+#     'DEFAULT_PERMISSION_CLASSES':[
+#         'rest_framework.permissions.IsAuthenticated',
+#     ]
+# }
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
