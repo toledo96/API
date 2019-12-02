@@ -8,9 +8,13 @@ class AlumnoSerializers(serializers.ModelSerializer):
     #denuncias =serializers.StringRelatedField(many=True)
     #no sirvio denuncias= serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     class Meta:
+        carreras = serializers.SlugRelatedField(many=True,read_only=True,slug_field='alumnos')
         model = Alumno
         fields = ('__all__')
 
 class CarreraSerializers(serializers.ModelSerializer):
-    model = Carrera
-    fields = ('__all__')
+    nombreAlumno =serializers.ReadOnlyField(source='re_carrera.nombre')
+    apellidosAlumno=serializers.ReadOnlyField(source='re_carrera.apellidos')
+    class Meta:
+        model = Carrera
+        fields = ('__all__')
