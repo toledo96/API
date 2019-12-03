@@ -18,7 +18,7 @@ class AlumnoLista(APIView):
     permission_classes = (IsAuthenticated,)    
     
     def get(self, request, format=None):
-        queryset = Alumno.objects.filter(delete=False)
+        queryset = Alumno.objects.filter(delet=False)
         serializer = AlumnoSerializers(queryset, many=True)
         return Response(serializer.data)
     
@@ -34,7 +34,7 @@ class AlumnoDetalles(APIView):
     permission_classes = (IsAuthenticated,)    
     def get_object(self, id):
         try:
-            return Alumno.objects.get(pk=id, delete=False)
+            return Alumno.objects.get(pk=id, delet=False)
         except Alumno.DoesNotExist:
             return False
     
@@ -67,7 +67,7 @@ class AlumnoDetalles(APIView):
 class CarreraLista(APIView):
     permission_classes = (IsAuthenticated,)    
     def get(self, request, format=None):
-        queryset = Carrera.objects.filter(delete=False)
+        queryset = Carrera.objects.filter(delet=False)
         serializer = CarreraSerializers(queryset, many=True)
         return Response(serializer.data)
     
@@ -83,7 +83,7 @@ class CarreraDetalles(APIView):
     permission_classes = (IsAuthenticated,)    
     def get_object(self, id):
         try:
-            return Carrera.objects.get(pk=id, delete=False)
+            return Carrera.objects.get(pk=id, delet=False)
         except Carrera.DoesNotExist:
             return False
     
